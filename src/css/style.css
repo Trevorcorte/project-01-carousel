@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
+ul{
+    list-style: none; 
+}
+
+a{
+    text-decoration: none; /* tirando a decoração do texto*/
+}
+
+body{
+    font-family: 'Poppins', 
+    sans-serif;
+    max-width: 1280px; /* tamanho máximo para se adaptar/adequar */
+    margin: 0 auto; /* auto é para os dois lados, todos os lados */
+}
+
+main:after{ /* criando um pseudo-elemento, criando uma máscara */
+    content: '';
+    min-height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.9724264705882353) 18%, rgba(0,0,0,0.4150035014005602) 53%, rgba(0,0,0,0.8) 100%);
+    z-index: -1;
+}
+
+
+.content{
+    display: flex; /* alinhas os elementos verticalmente e horizontal */
+    flex-direction: column;
+    min-height: 100vh; /* altura min pro tamanho da tela */
+    justify-content: space-evenly; /* centralizando o conteúdo na page */
+}
+
+
+.information .logo{
+    max-width: 350px; /* tamanho logo */
+    filter: invert(1); /* invertendo a cor */
+    margin-bottom: 80px; /* espaçando externo para baixo */
+}
+
+.information .font{
+    width: 49%; /* largura text */
+    font-size: 24px;
+    color: #ffffff;
+    line-height: 30px; /* espaçamento entre as linhas */
+}
+
+.buttons-carousel{
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* separar os buttons, espaçamento entre os elementos */
+}
+
+.buttons-carousel .button{
+    background-color: #ffffff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; /* para deixar redondo o botão */
+    border: 2px solid transparent; /* borda do button */
+    cursor: pointer; /* deixar o ponteiro quando passar o mouse em cima */
+    border-color: #ffffff;   
+}
+
+.buttons-carousel .button.selecionado{
+    background-color: #1d8346;
+}
+
+.menu-right{
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh; /* precisa colocar pra ter altura */
+}
+
+.menu-right ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-right .icon{
+    width: 30px;
+    filter: invert(1);
+    transition: 0.3s ease-in-out; /* pra ficar mais suave */
+}
+
+.menu-right .icon:hover{
+    transform: scale(1.2);  /* aumentar/escalar o icone */
+}
+
+.carousel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1; /* colocar pra baixo ou por cima */
+}
+
+.carousel .image{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* cobrir sempre com qualidade as proporções */ 
+    display: none; /* pra esconder as imagens */
+    animation: mudarImagem 0.7s;
+}
+
+.carousel .image.active{
+    display: block; /* block é para mostrar */
+}
+
+@keyframes mudarImagem{ /* pra fazer a animação */
+    from{
+        opacity: 0.85;
+    }
+    to{
+        opacity: 1;
+    }
+
+}
